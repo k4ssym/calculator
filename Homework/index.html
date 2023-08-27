@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    input, button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculator</h1>
+  <input type="number" id="firstNumber" placeholder="First number">
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+  <input type="number" id="secondNumber" placeholder="Second number">
+  <button onclick="calculate()">Calculate</button>
+  <p id="result"></p>
+
+  <script>
+    function calculate() {
+      const firstNumber = parseFloat(document.getElementById('firstNumber').value);
+      const operator = document.getElementById('operator').value;
+      const secondNumber = parseFloat(document.getElementById('secondNumber').value);
+
+      let result;
+      switch (operator) {
+        case '+':
+          result = firstNumber + secondNumber;
+          break;
+        case '-':
+          result = firstNumber - secondNumber;
+          break;
+        case '*':
+          result = firstNumber * secondNumber;
+          break;
+        case '/':
+          result = firstNumber / secondNumber;
+          break;
+        default:
+          result = 'Invalid operator';
+      }
+
+      document.getElementById('result').textContent = `Result is ${result}`;
+    }
+  </script>
+</body>
+</html>
